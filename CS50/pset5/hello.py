@@ -30,20 +30,16 @@ def register():
     if request.method == 'GET':
         return hello_world()
     if valid_login(request.form['username'], request.form['password']):
-
-
-    return 'Method POST is got.'
-
+        return 'Method POST is got.'
 
 
 if __name__ == '__main__':
     app.debug = True
     app.run()
 
-from flask import request
 
 with app.test_request_context('/hello', method='POST'):
-    # теперь, и до конца блока with, вы можете что-либо делать
-    # с контекстом, например, вызывать простые assert-ы:
+    #u теперь, и до конца блока with, вы можете что-либо делать
+    #u с контекстом, например, вызывать простые assert-ы:
     assert request.path == '/hello'
     assert request.method == 'POST'
